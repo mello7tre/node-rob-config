@@ -36,7 +36,7 @@ try {
 const conf = convict(require(schemaFile));
 
 // check and load related environment config
-const env = conf.env || 'development';
+const env = conf.get('env') || 'development';
 const configFile = path.resolve(configDir, env + '.js');
 try {
     const statFile = fs.statSync(configFile);
